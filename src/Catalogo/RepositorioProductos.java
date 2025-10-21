@@ -16,6 +16,17 @@ import java.util.stream.Collectors;
  * @author jprod
  */
 public class RepositorioProductos {
+   private static RepositorioProductos instance = null;
+
+    public static synchronized RepositorioProductos getInstance(){
+        if(instance==null) instance = new RepositorioProductos();
+        return instance;
+    }
+
+    private RepositorioProductos(){
+        
+    }
+
     private final Map<String, Producto> productos = new HashMap<>();
 
     public void guardar(Producto p){
@@ -30,10 +41,6 @@ public class RepositorioProductos {
         productos.remove(codigo); 
     }
     
-    /**
-     * Iterator
-     * @return 
-     */
     public List<Producto> obtenerTodo(){
         return new ArrayList<>(productos.values());
     }

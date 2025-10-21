@@ -15,6 +15,17 @@ import java.util.Optional;
  * @author jprod
  */
 public class RepositorioClientes {
+   private static RepositorioClientes instance = null;
+
+    public static synchronized RepositorioClientes getInstance(){
+        if(instance==null) instance = new RepositorioClientes();
+        return instance;
+    }
+
+    private RepositorioClientes(){
+        
+    }
+
     private final Map<String, Cliente> data = new HashMap<>();
     
     public void guardar(Cliente c){
@@ -31,3 +42,4 @@ public class RepositorioClientes {
     
     public List<Cliente> obtenerTodo(){ return new ArrayList<>(data.values()); }
 }
+

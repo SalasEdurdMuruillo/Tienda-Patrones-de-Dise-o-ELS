@@ -15,6 +15,17 @@ import java.util.Optional;
  * @author jprod
  */
 public class RepositorioCategorias {
+   private static RepositorioCategorias instance = null;
+
+    public static synchronized RepositorioCategorias getInstance(){
+        if(instance==null) instance = new RepositorioCategorias();
+        return instance;
+    }
+
+    private RepositorioCategorias(){
+       
+    }
+
     private final Map<Integer, Categoria> categorias = new HashMap<>();
     
     public void guardar(Categoria c){ 
@@ -29,10 +40,6 @@ public class RepositorioCategorias {
         categorias.remove(id); 
     }
     
-    /**
-     * Iterator
-     * @return 
-     */
     public List<Categoria> obtenerTodo(){ 
         return new ArrayList<>(categorias.values());
     }

@@ -27,10 +27,6 @@ public class RepositorioFacturas {
         return Optional.ofNullable(data.get(n));
     }
     
-    /**
-     * Iterator
-     * @return 
-     */
     public List<Factura> obtenerTodo(){
         return new ArrayList<>(data.values()); 
     }
