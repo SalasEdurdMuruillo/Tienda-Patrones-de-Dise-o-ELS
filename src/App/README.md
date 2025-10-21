@@ -58,3 +58,24 @@ El diseño sigue principios de **buenas prácticas**, **encapsulamiento**, **sep
 └── README.md
 
 ## 🧩 Patrones de diseño aplicados
+Builder:
+Dónde se aplicó: ProductoBuilder en el módulo de Catálogo
+Justificación: Facilita la creación de objetos Producto con múltiples atributos 
+(código, nombre, precio, stock, categoría) de manera legible y segura, evitando constructores largos 
+y errores por el orden de parámetros. Permite inicializar solo los atributos necesarios y se integra con el 
+RepositorioProductos Singleton para mantener consistencia de datos.
+
+Singleton:
+Dónde se aplicó: RepositorioCategorias, RepositorioProductos, RepositorioClientes, RepositorioFacturas
+Justificación: Garantiza que solo exista una instancia de cada repositorio, centralizando los datos en memoria
+y asegurando que todos los módulos trabajen sobre la misma fuente, evitando duplicación o desincronización.
+
+Prototype:
+Dónde se aplicó: Clase Producto
+Justificación: Permite duplicar productos existentes mediante clone(), facilitando crear variantes o 
+reutilizar productos como plantilla sin usar constructores largos, mejorando la legibilidad y eficiencia.
+
+State:
+Dónde se aplicó: Notificacion y estados (PendienteState, EnviadaState, FallidaState)
+Justificación: Cada estado encapsula su comportamiento, eliminando condicionales complejos. 
+Facilita agregar o modificar estados sin alterar la clase principal y mejora la cohesión respetando los principios SRP y OCP.
