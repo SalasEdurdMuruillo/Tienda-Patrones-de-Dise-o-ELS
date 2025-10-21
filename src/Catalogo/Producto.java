@@ -6,10 +6,10 @@ package Catalogo;
 
 /**
  *
- * @author jprod
+ * @author Sebastián Salas H
  */
-public class Producto {
-    private String codigo; // único visible al usuario
+public class Producto implements Cloneable {
+    private String codigo;
     private String nombre;
     private double precio;
     private int stock;
@@ -37,6 +37,17 @@ public class Producto {
     @Override
     public String toString() {
         return "Producto{" + "codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", stock=" + stock + ", categoria=" + categoria + '}';
+    }
+
+    
+    @Override
+    public Producto clone() {
+        try {
+            Producto p = (Producto) super.clone();
+            return p;
+        } catch (CloneNotSupportedException e) {
+            return new Producto(this.codigo, this.nombre, this.precio, this.stock, this.categoria);
+        }
     }
 
 }
