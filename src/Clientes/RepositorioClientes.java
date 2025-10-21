@@ -22,7 +22,7 @@ public class RepositorioClientes {
         return instance;
     }
 
-    private RepositorioClientes(){
+    public RepositorioClientes(){
         
     }
 

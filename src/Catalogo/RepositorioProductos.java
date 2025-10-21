@@ -23,7 +23,7 @@ public class RepositorioProductos {
         return instance;
     }
 
-    private RepositorioProductos(){
+    public RepositorioProductos(){
         
     }
 
